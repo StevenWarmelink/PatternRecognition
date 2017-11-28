@@ -19,14 +19,31 @@ surf((-10:.1:10),(-10:.1:10),F);
 
 %%
 % Mahalanobis Distance ?!?!?!?!?!?!?!
-d_1010 = mahal([10 10]', meanVec');
-disp(d_1010);
+covMat  = [ 1   0 ;
+            0   2 ];
+meanVec = [ 3 ; 4 ];
 
-d_0_0 = mahal([0 0]', meanVec');
-disp(d_0_0);
+% x = [ 10 ;
+%       10 ];
+X = [10;10];
+mahaldist = sqrt((X-meanVec)' * inv(covMat) * (X-meanVec));
+disp(mahaldist);
 
-d_3_4 = mahal([3 4]', meanVec');
-disp(d_3_4);
 
-d_6_8 = mahal([6 8]', meanVec');
-disp(d_6_8);
+% x = [ 0 ;
+%       0 ];
+X = [0;0];
+mahaldist = sqrt((X-meanVec)' * inv(covMat) * (X-meanVec));
+disp(mahaldist);
+
+% x = [ 3 ;
+%       4 ];
+X = [3;4];
+mahaldist = sqrt((X-meanVec)' * inv(covMat) * (X-meanVec));
+disp(mahaldist);
+
+% x = [ 6 ;
+%       8 ];
+X = [6;8];
+mahaldist = sqrt((X-meanVec)' * inv(covMat) * (X-meanVec));
+disp(mahaldist);
