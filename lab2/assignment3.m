@@ -17,7 +17,7 @@ F = mvnpdf([X1(:) X2(:)],meanVec,covMat);
 F = reshape(F,201,201);
 surf((-10:.1:10),(-10:.1:10),F);
 
-
+%%
 % Mahalanobis Distance ?!?!?!?!?!?!?!
 d_1010 = mahal([10 10]', meanVec');
 disp(d_1010);
