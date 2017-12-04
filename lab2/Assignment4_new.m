@@ -31,8 +31,8 @@ variance = 25/100;
 disp(variance);
 
 %% plot normdist to verify
-x = 0:0.01:1;
-f = normpdf(x,0.5,sqrt(0.25));
-plot(x,f);
-axis([0 1 0 1]);
+%x = 0:0.01:1;
+%f = normpdf(x,0.5,sqrt(0.25));
+%plot(x,f);
+%axis([0 1 0 1]);
 

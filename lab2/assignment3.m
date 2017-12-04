@@ -16,6 +16,7 @@ covMat  = [ 1 0 ;
 F = mvnpdf([X1(:) X2(:)],meanVec,covMat);
 F = reshape(F,201,201);
 surf((-10:.1:10),(-10:.1:10),F);
+title('Two-dimensional Gaussian pdf with mean [3;4] Covariance Matrix [1 0; 0 2]'); 
 
 %%
 % Mahalanobis Distance ?!?!?!?!?!?!?!
