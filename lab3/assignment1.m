@@ -69,3 +69,34 @@ hitrate = n_hits / length(data)
 
 % Question 8
 
+n_fa = 0;
+
+for idx = 1:length(data)
+    if (data(idx,1) == 0) && (data(idx,2) == 1)
+        n_fa= n_fa + 1;
+    end
+end
+
+fa_rate = n_fa / length(data)
+
+%% Question 9
+figure();
+hold on;
+line([1 0], [0 1]);
+scatter(fa_rate, hitrate);
+xlabel('False positive rate');
+ylabel('True positive rate');
+axis([0 1 0 1]);
+
+%%
+data_trans = data'; 
+targets = data(1,:);
+[tpr, fpr, thresholds] = roc(data(:,1), data(:,2)); 
+
+hold on;
+for i = 1:length(thresholds)
+   tempdat = thresholds(i);
+   tempdat = tempdat{1,1};
+   scatter(tempdat
+end
+scatter(thresholds);
