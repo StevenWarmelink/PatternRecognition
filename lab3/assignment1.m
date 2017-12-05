@@ -83,10 +83,24 @@ fa_rate = n_fa / length(data)
 figure();
 hold on;
 line([1 0], [0 1]);
-scatter(fa_rate, hitrate);
+scatter(fa_rate, hitrate,'g');
 xlabel('False positive rate');
 ylabel('True positive rate');
 axis([0 1 0 1]);
+
+means = 0:1:20;
+xvec = zeros(1001,1);
+yvec = zeros(1001,1);
+idx = 0;
+hold on;
+for D = 0:.1:1
+    xvec(idx) = 1 - normcdf(D, mean(data(:,2)), sqrt(var(data(:,2))));
+    yvec(idx) = 1 - normcdf(D, mean(data(:,1)), sqrt(var(data(:,2))));
+    scatter(xvec, yvec,'r');
+    hold off;
+    pause();
+    close all;
+end
 
 %%
 data_trans = data'; 
