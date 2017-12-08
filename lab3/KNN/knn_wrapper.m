@@ -5,10 +5,8 @@ load lab3_2.mat;
 K=1;
 samples=64;
 data = lab3_2;
-nr_of_classes = 4;
+nr_of_classes = 2;
 class_labels = floor( (0:length(data)-1) * nr_of_classes / length(data) );
-
-
 %% Generate plot for given K
 
 % Sample the parameter space
@@ -67,3 +65,27 @@ plot(K_vals,e_rates);
 xlabel('Number of neighbours (K) in KNN');
 ylabel('Error rate');
 title(['KNN Error rate using LOOCV for different K with ',num2str(nr_of_classes),' class(es)']);
+
+
+%% Assignment 3 - KNN - parzen with 3D data
+clear all;
+load lab3_3_cat1;
+load lab3_3_cat2;
+load lab3_3_cat3;
+
+K = 1;
+
+nr_of_classes = 3;
+
+data = [x_w1; x_w2; x_w3]; 
+
+class_labels = floor( (0:length(data)-1) * nr_of_classes / length(data) );
+
+% U
+%input = [0.5 1.0 0.0];
+% V
+%input = [0.31 1.51 -0.50];
+% W
+input = [-1.7 -1.7 -1.7];
+
+res = KNN(input, K, data, class_labels)
