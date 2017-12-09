@@ -2,10 +2,10 @@
 clear all;
 load lab3_2.mat;
 
-K=1;
+K=7;
 samples=64;
 data = lab3_2;
-nr_of_classes = 2;
+nr_of_classes = 4;
 class_labels = floor( (0:length(data)-1) * nr_of_classes / length(data) );
 %% Generate plot for given K
 
@@ -42,7 +42,7 @@ hold off;
 %% LOOCV
 
 % Sample the parameter space
-K_vals = 1:1:25;
+K_vals = 1:2:25;
 e_rates = zeros(length(K_vals),1);
 for k_val = 1:length(K_vals)
     numerrors = 0;
@@ -66,6 +66,8 @@ xlabel('Number of neighbours (K) in KNN');
 ylabel('Error rate');
 title(['KNN Error rate using LOOCV for different K with ',num2str(nr_of_classes),' class(es)']);
 
+min_K = K_vals(I(1))
+min_error = min(e_rates)
 
 %% Assignment 3 - KNN - parzen with 3D data
 clear all;
@@ -89,3 +91,12 @@ class_labels = floor( (0:length(data)-1) * nr_of_classes / length(data) );
 input = [-1.7 -1.7 -1.7];
 
 res = KNN(input, K, data, class_labels)
+
+%% INCLUDED KNN FUNCTION - since we have to upload both the entire script and the KNN function
+
+% - should be in separate file named KNN.m
+function output = KNN ( Coordinates, K, data, class_labels)
+    dist = pdist2(Coordinates, data); 
+    [~, I] = sort(dist,'ascend');
+    output = mode(class_labels(I(1:K)));
+end
