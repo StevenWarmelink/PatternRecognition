@@ -56,12 +56,11 @@ xlim([min(theta), max(theta)]);
 hold off;
 
 %% Local maximum
-max(max(threshold_hough))
+local_max = max(max(threshold_hough));
 
 %% 5 local maxima accumulator array;
 [B, I] = sort(reshape(hough_array,1,(723*180)),'descend');
-I(1:10)
-B(1:10)
+five_local_max = I(1:5);
 
 %% Threshold accumulator array
 five_largest = hough_array * 0;
@@ -86,19 +85,6 @@ hold off;
 
 
 %% 
-[ M I1 ] = max(hough_array(:));
-[ X Y ] = ind2sub(size(hough_array),I1);
-myhoughline(img, rho(X),theta(Y));
-
-%%
-hough_array(I1) = 0;
-
-[ M I1 ] = max(hough_array(:));
-[ X Y ] = ind2sub(size(hough_array),I1);
-myhoughline(img, rho(X),theta(Y));
-%%
-hough_array(I1) = 0;
-
 [ M I1 ] = max(hough_array(:));
 [ X Y ] = ind2sub(size(hough_array),I1);
 myhoughline(img, rho(X),theta(Y));
