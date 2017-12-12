@@ -42,7 +42,6 @@ xlim([0 500]);
 %% Filter out frequencies
 
 clear all;
-close all;
 
 % The peaks at 100 Hz and 6K Hz should be removed, 
 % along with their overtones (if applicable).
