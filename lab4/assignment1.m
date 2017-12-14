@@ -88,3 +88,5 @@ hold off;
 [ M I1 ] = max(hough_array(:));
 [ X Y ] = ind2sub(size(hough_array),I1);
 myhoughline(img, rho(X),theta(Y));
+
+hough_array(I1) = 0;
