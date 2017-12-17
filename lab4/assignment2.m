@@ -24,5 +24,11 @@ H2 = (H2-min(H2(:)))/max(H2(:));
 % plot 2D hough arrays
 subplot(1,2,1);
 imshow(imadjust(H1), [], 'InitialMagnification','fit','ColorMap',hot);
+title('result of myhough');
+xlabel('\theta');
+ylabel('\rho');
 subplot(1,2,2);
 imshow(imadjust(H2), [],'InitialMagnification','fit','ColorMap',hot);
+title('result of MATLAB hough');
+xlabel('\theta');
+ylabel('\rho');

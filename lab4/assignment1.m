@@ -63,28 +63,31 @@ local_max = max(max(threshold_hough));
 five_local_max = I(1:5);
 
 %% Threshold accumulator array
-five_largest = hough_array * 0;
-five_largest(I(1:5)) = B(1:5);
+%five_largest = hough_array * 0;
+%five_largest(I(1:5)) = B(1:5);
 % Display thresholded image
 figure(3);
 hold on;
-imshow(five_largest, [],'XData', theta, ...
-    'YData', rho, 'InitialMagnification','fit');
+imshow(imadjust(mat2gray(hough_array)), [],'XData', theta, ...
+    'YData', rho, 'InitialMagnification','fit','Colormap',hot);
 title('Five local maxima');
 xlabel('\theta (degrees)');
 ylabel('\rho');
 axis on;
 axis normal;
-P = houghpeaks(hough_array,5);
-x = theta(P(:,2)); y = rho(P(:,1));
-plot(x,y,'s','color','green');
+[Y, X] = ind2sub(size(hough_array),(I(1:5)));
+x = theta(X); y = rho(Y);
+plot(x,y,'s','color','blue');
 ylim([min(rho), max(rho)]);
 xlim([min(theta), max(theta)]);
 hold off;
 
 
 
-%% 
+%% Create houghline
+img = imread('Cameraman.tiff');
+img_canny = edge(img,'Canny');
+[hough_array, theta, rho] = hough(img_canny);
 [ M I1 ] = max(hough_array(:));
 [ X Y ] = ind2sub(size(hough_array),I1);
 myhoughline(img, rho(X),theta(Y));
