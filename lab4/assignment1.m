@@ -2,7 +2,7 @@ clear all;
 close all;
 
 %% Read Image
-img = imread('Cameraman.tiff');
+img = imread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\Cameraman.tiff');
 
 %% Canny algorithm (default params)
 img_canny = edge(img,'Canny');
