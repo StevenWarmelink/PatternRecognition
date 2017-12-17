@@ -1,0 +1,32 @@
+%% Read Image
+img = imread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\chess.jpg');
+
+%% Convert the image to a greyscale from an RGB
+img_grey =rgb2gray(img);
+
+%% Canny algorithm (default params)
+img_canny = edge(img_grey,'Canny');
+
+%% Hough transform accumulator array(?)
+[hough_array, theta, rho] = hough(img_canny);
+
+hold on;
+imshow(imadjust(mat2gray(hough_array)), [],'XData', theta, ...
+    'YData', rho, 'InitialMagnification','fit','colormap',hot);
+title('accumulator array image');
+xlabel('\theta (degrees)');
+ylabel('\rho');
+axis on;
+axis normal;
+P = houghpeaks(hough_array);
+%P = houghpeaks(hough_array,5,'threshold',threshold);
+x = theta(P(:,2)); y = rho(P(:,1));
+plot(x,y,'s','color','green');
+%ylim([min(rho), max(rho)]);
+%xlim([min(theta), max(theta)]);
+hold off;
+%% Getting the maxima from the accumulator array
+[B, I] = sort(reshape(hough_array,1,(723*180)),'descend');
+local_max = max(max(hough_array));
+
+
