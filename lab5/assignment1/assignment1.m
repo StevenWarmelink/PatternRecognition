@@ -145,78 +145,87 @@ hold on;
 
 % Plot 1_1
 weight = final_weights_1_1;
+classes = zeros(1,200);
 for row = 1:200
-    class = classify_point(total_data(row,1:2),weight);
-    if class == 1
-        color = [1 0 0];
-    else
-        color = [0 0 1];
-    end
-    scatter(total_data(row,1), total_data(row,2), 'MarkerFaceColor', ...
-    color, 'MarkerEdgeColor', [0 0 0]);
+    classes(row) = classify_point(total_data(row,1:2),weight);
 end
+
+a_indices = find(classes == 1);
+b_indices = find(classes == 0);
+scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
+[0 0 1], 'MarkerEdgeColor', [0 0 0]);
+
+scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
+[1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('1 - 1');
 xlabel('x');
 ylabel('y');
-legend('Class A','Class B');
+legend('Class B','Class A');
 hold off;
 
 % Plot 1_2
 subplot(2,2,2);
 hold on;
 weight = final_weights_1_2;
+classes = zeros(1,200);
 for row = 1:200
-    class = classify_point(total_data(row,1:2),weight);
-    if class == 1
-        color = [1 0 0];
-    else
-        color = [0 0 1];
-    end
-    scatter(total_data(row,1), total_data(row,2), 'MarkerFaceColor', ...
-    color, 'MarkerEdgeColor', [0 0 0]);
+    classes(row) = classify_point(total_data(row,1:2),weight);
 end
+
+a_indices = find(classes == 1);
+b_indices = find(classes == 0);
+scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
+[0 0 1], 'MarkerEdgeColor', [0 0 0]);
+
+scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
+[1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('1 - 2');
 xlabel('x');
 ylabel('y');
-legend('Class A','Class B');
+legend('Class B','Class A');
 hold off;
 
 % Plot 2_1
 subplot(2,2,3);
 hold on;
 weight = final_weights_2_1;
+classes = zeros(1,200);
 for row = 1:200
-    class = classify_point(total_data(row,1:2),weight);
-    if class == 1
-        color = [1 0 0];
-    else
-        color = [0 0 1];
-    end
-    scatter(total_data(row,1), total_data(row,2), 'MarkerFaceColor', ...
-    color, 'MarkerEdgeColor', [0 0 0]);
+    classes(row) = classify_point(total_data(row,1:2),weight);
 end
+
+a_indices = find(classes == 1);
+b_indices = find(classes == 0);
+scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
+[0 0 1], 'MarkerEdgeColor', [0 0 0]);
+
+scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
+[1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('2 - 1');
 xlabel('x');
 ylabel('y');
-legend('Class A','Class B');    
+legend('Class B','Class A');    
 hold off;
 
 % Plot 2_2
 subplot(2,2,4);
 hold on;
 weight = final_weights_2_2;
+classes = zeros(1,200);
 for row = 1:200
-    class = classify_point(total_data(row,1:2),weight);
-    if class == 1
-        color = [1 0 0];
-    else
-        color = [0 0 1];
-    end
-    scatter(total_data(row,1), total_data(row,2), 'MarkerFaceColor', ...
-    color, 'MarkerEdgeColor', [0 0 0]);
+    classes(row) = classify_point(total_data(row,1:2),weight);
 end
+
+a_indices = find(classes == 1);
+b_indices = find(classes == 0);
+scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
+[0 0 1], 'MarkerEdgeColor', [0 0 0]);
+
+scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
+[1 0 0], 'MarkerEdgeColor', [0 0 0]);
+
 title('2 - 2');
 xlabel('x');
 ylabel('y');
-legend('Class A','Class B');
+legend('Class B','Class A');
 hold off;
