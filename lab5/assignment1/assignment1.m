@@ -161,6 +161,7 @@ title('1 - 1');
 xlabel('x');
 ylabel('y');
 legend('Class B','Class A');
+scatter(final_weights_1_1(:,1),final_weights_1_1(:,2),'gd','filled');
 hold off;
 
 % Plot 1_2
@@ -183,6 +184,7 @@ title('1 - 2');
 xlabel('x');
 ylabel('y');
 legend('Class B','Class A');
+scatter(final_weights_1_2(:,1),final_weights_1_2(:,2),'gd','filled');
 hold off;
 
 % Plot 2_1
@@ -205,6 +207,7 @@ title('2 - 1');
 xlabel('x');
 ylabel('y');
 legend('Class B','Class A');    
+scatter(final_weights_2_1(:,1),final_weights_2_1(:,2),'gd','filled');
 hold off;
 
 % Plot 2_2
@@ -228,4 +231,5 @@ title('2 - 2');
 xlabel('x');
 ylabel('y');
 legend('Class B','Class A');
+scatter(final_weights_2_2(:,1),final_weights_2_2(:,2),'gd','filled');
 hold off;
