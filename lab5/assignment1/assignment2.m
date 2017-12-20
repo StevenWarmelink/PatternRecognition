@@ -10,12 +10,13 @@ fold_data = generateFolds();
 errors = zeros(1,10);
 
 for fold = 1:10
-    weights      = train_network(fold_data(setdiff(1:end,fold)));
+                 % Call with dataset and mode (i.e. 1-1, 1-2, etc.
+    weights      = train_network(fold_data(setdiff(1:end,fold)),22);
     errors(fold) = test_network(fold_data(fold), weights);
 end
     
 %% Plot errors
-figure(1);
+figure(4);
 bar_fig = bar(1:10, errors);
 xlabel('Fold');
 ylabel('Error Rate');

@@ -1,4 +1,4 @@
-function weights = train_network(data)
+function weights = train_network(data, mode)
 
     % Set maximum number of epochs
     num_epochs = 200;
@@ -20,15 +20,24 @@ function weights = train_network(data)
     a_data = a_data.matA;
     b_data = load('data_lvq_B');
     b_data = b_data.matB;
-    %w_1 = [mean(a_data(:,1)), mean(a_data(:,2)), 0];  %% Belongs to class A
-    %w_2 = [mean(b_data(:,1)), mean(b_data(:,2)), 1];    %% Belongs to class B
-    %weights = [w_1; w_2];
-    
-    %2-1
-    weights = [mean(a_data(:,1))+rand(1,1), mean(a_data(:,2))+rand(1,1), 0; ...
-               mean(a_data(:,1))-rand(1,1), mean(a_data(:,2))-rand(1,1), 0;
-               mean(b_data(:,1)), mean(b_data(:,2)), 1];
 
+    if mode == 11
+        weights = [mean(a_data(:,1)), mean(a_data(:,2)), 0; ...
+                   mean(b_data(:,1)), mean(b_data(:,2)), 1];
+    elseif mode == 21
+        weights = [mean(a_data(:,1))+rand(1,1), mean(a_data(:,2))+rand(1,1), 0; ...
+                   mean(a_data(:,1))-rand(1,1), mean(a_data(:,2))-rand(1,1), 0;
+                   mean(b_data(:,1)), mean(b_data(:,2)), 1];
+    elseif mode == 12
+        weights = [mean(b_data(:,1))+rand(1,1), mean(b_data(:,2))+rand(1,1), 1; ...
+                   mean(b_data(:,1))-rand(1,1), mean(b_data(:,2))-rand(1,1), 1;
+                   mean(a_data(:,1)), mean(a_data(:,2)), 0];
+    else 
+        weights = [mean(a_data(:,1))+rand(1,1), mean(a_data(:,2))+rand(1,1), 0; ...
+                   mean(a_data(:,1))-rand(1,1), mean(a_data(:,2))-rand(1,1), 0; ...
+                   mean(b_data(:,1))+rand(1,1), mean(b_data(:,2))+rand(1,1), 1; ...
+                   mean(b_data(:,1))-rand(1,1), mean(b_data(:,2))-rand(1,1), 1;];
+    end
     for epoch = 1:num_epochs
         for datapoint = 1:180
             current_point = total_data(datapoint,1:2);
