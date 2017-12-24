@@ -85,7 +85,7 @@ hold off;
 
 
 %% Create houghline
-img = imread('Cameraman.tiff');
+img = imread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\Cameraman.tiff');
 img_canny = edge(img,'Canny');
 [hough_array, theta, rho] = hough(img_canny);
 [ M I1 ] = max(hough_array(:));
