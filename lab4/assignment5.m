@@ -5,7 +5,7 @@ format long;
 
 % Read audio file, save data in y and 
 % sample rate in Fs
-[y, Fs] = audioread('corrupted_voice.wav'); 
+[y, Fs] = audioread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\corrupted_voice.wav'); 
 
 % Transform signal to fourier domain
 X = fft(y);
@@ -47,7 +47,7 @@ xlim([0 500]);
 % and decrease the amplitude of everything afterwards
 
 % Load audiofile
-[y, Fs] = audioread('corrupted_voice.wav');
+[y, Fs] = audioread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\corrupted_voice.wav');
 
 % Create transfer funtion.
 [b, a] = butter(7, 2000/(Fs/2));
@@ -56,4 +56,4 @@ xlim([0 500]);
 filtered_audio = filter(b, a, y);
 
 % Write to file. 
-audiowrite('cleaned_voice.wav',filtered_audio,Fs);
+audiowrite('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\cleaned_voice.wav',filtered_audio,Fs);

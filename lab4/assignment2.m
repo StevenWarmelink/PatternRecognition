@@ -1,8 +1,8 @@
 %% Calculate 2D accumulator array
 
 % Read and convert image to grayscale
-img = imread('chess.jpg');
-img = rgb2gray(img);
+img = imread('C:\Users\arjun\Desktop\PatternRecognition\labassignment4\Cameraman.tiff');
+%img = rgb2gray(img);
 % Calculate edge map for input
 edgemap = edge(img,'Canny');
 
