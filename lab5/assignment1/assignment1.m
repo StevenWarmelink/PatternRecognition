@@ -4,10 +4,10 @@ clear all;
 close all;
 %% Read data
 
-a_data = load('C:\Users\arjun\Desktop\PatternRecognition\labAssignment5\data_lvq_A');
+a_data = load('data_lvq_A');
 a_data = a_data.matA;
 
-b_data = load('C:\Users\arjun\Desktop\PatternRecognition\labAssignment5\data_lvq_B');
+b_data = load('data_lvq_B');
 b_data = b_data.matB;
 
 %% Create combined scatter plot
@@ -17,8 +17,8 @@ scatter(a_data(:,1),a_data(:,2),'MarkerFaceColor', ...
     [1 0 0], 'MarkerEdgeColor',[0 0 0]);
 scatter(b_data(:,1),b_data(:,2),'MarkerFaceColor', ...
     [0 0 1], 'MarkerEdgeColor',[0 0 0]);
-xlabel('x');
-ylabel('y');
+xlabel('Feature 1');
+ylabel('Feature 2');
 legend('Class A','Class B');
 title('Scatter plots of classes A and B');
 hold off;
@@ -158,8 +158,8 @@ scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
 scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
 [1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('1 - 1');
-xlabel('x');
-ylabel('y');
+xlabel('Feature 1');
+ylabel('Feature 2');
 legend('Class B','Class A');
 scatter(final_weights_1_1(:,1),final_weights_1_1(:,2),'gd','filled');
 hold off;
@@ -181,8 +181,8 @@ scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
 scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
 [1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('1 - 2');
-xlabel('x');
-ylabel('y');
+xlabel('Feature 1');
+ylabel('Feature 2');
 legend('Class B','Class A');
 scatter(final_weights_1_2(:,1),final_weights_1_2(:,2),'gd','filled');
 hold off;
@@ -204,8 +204,8 @@ scatter(total_data(a_indices,1), total_data(a_indices,2), 'MarkerFaceColor', ...
 scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
 [1 0 0], 'MarkerEdgeColor', [0 0 0]);
 title('2 - 1');
-xlabel('x');
-ylabel('y');
+xlabel('Feature 1');
+ylabel('Feature 2');
 legend('Class B','Class A');    
 scatter(final_weights_2_1(:,1),final_weights_2_1(:,2),'gd','filled');
 hold off;
@@ -228,8 +228,8 @@ scatter(total_data(b_indices,1), total_data(b_indices,2), 'MarkerFaceColor', ...
 [1 0 0], 'MarkerEdgeColor', [0 0 0]);
 
 title('2 - 2');
-xlabel('x');
-ylabel('y');
+xlabel('Feature 1');
+ylabel('Feature 2');
 legend('Class B','Class A');
 scatter(final_weights_2_2(:,1),final_weights_2_2(:,2),'gd','filled');
 hold off;
