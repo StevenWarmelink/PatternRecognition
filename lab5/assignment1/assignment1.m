@@ -106,8 +106,20 @@ for it = 1:4
         final_weights_2_2 = weights;
     end
 end
+
 %% Error Plot
 figure(2);
+hold on;
+plot(1:200,errors(2,:),'Color','blue');
+title('Error rate for 2 A prototypes and 1 B prototype');
+xlabel('Epoch');
+ylabel('Error Rate');
+xlim([0 200]);
+ylim([0 1]);
+hold off;
+
+%% Error Plot (2)
+figure(3);
 hold on;
 plot(1:200,errors(1,:),'Color','red');
 plot(1:200,errors(2,:),'Color','blue');
@@ -139,7 +151,7 @@ title('Scatter plots of classes A and B');
 hold off;
 
 %% Plot data according to prototypes
-figure(3);
+figure(4);
 subplot(2,2,1);
 hold on;
 

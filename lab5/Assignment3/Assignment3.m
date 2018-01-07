@@ -4,10 +4,10 @@ clear all;
 close all;
 %% Read data
 
-a_data = load('../assignment1/data_lvq_A');
+a_data = load('data_lvq_A');
 a_data = a_data.matA;
 
-b_data = load('../assignment1/data_lvq_B');
+b_data = load('data_lvq_B');
 b_data = b_data.matB;
 
 %% LVQ

@@ -14,7 +14,6 @@ function fold = generateFolds()
     a_idx = randperm(length(a_data));
     b_idx = randperm(length(b_data));
 
-    % folds = zeros(length(a_data) + length(b_data),5);
     % Assign to folds
     for foldidx = 1:10
         local_idx = (foldidx - 1) * 10;

@@ -30,8 +30,8 @@ for i = 1:numel(errors)
     text(i - 0.3, errors(i) + 0.05, [num2str(errors(i))], 'VerticalAlignment', 'top', 'FontSize', 8)
 end
 
-text(10, me+0.02, ['\mu = ', num2str(me,2)]);
-text(10, me+sde+0.02, ['\sigma = ', num2str(sde,2)]);
+text(10.3, me+0.02, ['\mu = ', num2str(me,2)]);
+text(10.1, me+sde+0.02, ['\sigma = ', num2str(sde,2)]);
 
 plot(xlim,[me me], 'r');
 plot(xlim,[me + sde me + sde], 'b');
