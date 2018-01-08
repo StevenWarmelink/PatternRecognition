@@ -1,0 +1,8 @@
+function plot_kmeans(input)
+    % get number of clusters
+    num_k = max(input(:,3));
+    hold on;
+    for idx = 1:num_k
+        
+        
+end
