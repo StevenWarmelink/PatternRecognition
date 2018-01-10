@@ -2,8 +2,12 @@
 clear all;
 close all;
 
-%% Read input
-input = load('data/kmeans1');
+%% setup
+% add path to working directory
+addpath(genpath(''));
+
+% load data
+input = load('kmeans1');
 input= input.kmeans1;
 
 %% Option(s)
@@ -11,7 +15,7 @@ input= input.kmeans1;
 k_vals = [2 4 8];
 
 % Plot arrows?
-plotArrows = true;
+plotArrows = false;
 
 %% Calculate kmeans for various K and plot results
 figure(1);

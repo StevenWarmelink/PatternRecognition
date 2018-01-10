@@ -1,10 +1,15 @@
-function [ output, means_over_time ] = euclidian_kmeans(input, k)
-    [rows, ~] = size(input);
-    
+function [ output, means_over_time ] = euclidian_kmeans(input, k, k_means)
+
+narginchk(2, 3);  % check the number of input arguments
+if (nargin<3)
     % sample K unique rows from input 
     k_idxs = randsample(rows, k);
     % use as initial k means
+    % load
     k_means = input(k_idxs,:);
+end;
+[rows, ~] = size(input);
+    
     
     % create output matrix with third row for labels
     output = input;
