@@ -2,6 +2,9 @@ function plot_kmeans(input)
     % get number of clusters
     num_k = max(input(:,3));
     
+    % Create matrix for prototypes
+    prototypes = zeros(num_k,2);
+    
     % plot in different colors
     hold on;
     for idx = 1:num_k
@@ -11,6 +14,7 @@ function plot_kmeans(input)
         current_data = input(current_idx,1:2);
         % reconstruct current k_mean
         cur_mean = mean(current_data);
+        prototypes(idx,:) = cur_mean;
         
         % generate unique colors based on K
         col_grad = (idx - 1) / (num_k - 1);
@@ -24,5 +28,8 @@ function plot_kmeans(input)
     title(['K = ',num2str(num_k)]);
     xlabel('Feature 1');
     ylabel('Feature 2');
+    
+    % Decision Boundary
+    voronoi(prototypes(:,1),prototypes(:,2));
     hold off;
 end

@@ -22,4 +22,15 @@ plot_kmeans(output);
 %% Batch Neural Gas
 
 figure(2);
-batchNG(data, 100, 1000);
+subplot(2,2,1);
+batchNG(data, 100, 20);
+title('20 epochs');
+subplot(2,2,2);
+batchNG(data, 100, 100);
+title('100 epochs');
+subplot(2,2,3);
+batchNG(data, 100, 200);
+title('200 epochs');
+subplot(2,2,4);
+batchNG(data, 100, 500);
+title('500 epochs');
