@@ -18,6 +18,7 @@ prototypes = prototypes.clusterCentroids;
 figure(1);
 [output, ~] = euclidian_kmeans(data, 100, prototypes);
 plot_kmeans(output);
+print('-f1','results/k_means','-dpng')
 
 %% Batch Neural Gas
 
@@ -34,3 +35,4 @@ title('200 epochs');
 subplot(2,2,4);
 batchNG(data, 100, 500);
 title('500 epochs');
+print('-f2','results/BNG','-dpng')
