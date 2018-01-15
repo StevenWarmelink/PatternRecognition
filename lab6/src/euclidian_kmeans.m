@@ -3,6 +3,7 @@ function [ output, means_over_time ] = euclidian_kmeans(input, k, k_means)
     narginchk(2, 3);  % check the number of input arguments
     if (nargin<3)
         % sample K unique rows from input 
+        [rows, ~] = size(input);
         k_idxs = randsample(rows, k);
         % use as initial k means
         % load
@@ -29,9 +30,7 @@ function [ output, means_over_time ] = euclidian_kmeans(input, k, k_means)
             % create vector to save distances to all k_means
             distances = zeros(k,1);
             % compare current point to all k_means.
-            for idx = 1:k
-               distances(idx) = pdist2(current_point,k_means(idx,:)); 
-            end
+            distances = pdist2(current_point,k_means);
             
             % get index of minimum distance
             [~, I] = min(distances);
