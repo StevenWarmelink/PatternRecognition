@@ -69,7 +69,6 @@ T = clusterdata(data,'MaxClust',4);
 
 % Scatter plot data, coloring according to cluster number
 figure(2);
-
 for i = 1:nrows
     hold on;
     cols = ['g','r','b','k'];
@@ -80,4 +79,5 @@ title('Data colored by cluster');
 xlabel('x-axis');
 ylabel('y-axis');
 
+% Save figure
 print('-f2','results/colored_clusters','-dpng')
