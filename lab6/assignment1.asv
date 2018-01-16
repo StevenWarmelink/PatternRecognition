@@ -84,7 +84,7 @@ hold off
 epoch = 100;
 dataset_old = zeros(1000,3);
 dataset = zeros(1000,3);
-K = 4;
+K = 8;
 num = 1;
 
 
@@ -100,6 +100,7 @@ hold on
     [1 0 0], 'MarkerEdgeColor',[0 0 0],'DisplayName','datapoints');
     scatter(prototype(:,1),prototype(:,2),'MarkerFaceColor', ...
     [0.5 0.5 0.5], 'MarkerEdgeColor',[0 0 0],'DisplayName','initial prototypes');
+legend('show','Location','southwest');
     for i = 1:epoch
         for j = 1:K
                 prot(idx,:) = prototype(j,1:2);
@@ -115,7 +116,7 @@ hold on
 
         prot(prot == 0) = nan;
         for i = 1:K
-            plot(prot(i:K:end,1),prot(i:K:end,2),'color',[0 (1/i) (1/i)],'LineWidth',2,'DisplayName','transitions');
+            plot(prot(i:K:end,1),prot(i:K:end,2),'color',[0 (1/i) (1/i)],'LineWidth',2);
         end
 
 
@@ -130,7 +131,7 @@ je = zeros(1000,1);
 epoch = 100;
 dataset_old = zeros(1000,3);
 dataset = zeros(1000,3);
-for K = 1:100
+for K = 1:1000
     K
     prototype = datasample(data,K);
     for i = 1:epoch
