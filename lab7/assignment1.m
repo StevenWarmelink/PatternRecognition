@@ -47,16 +47,19 @@ end
 print('-f1','results/threshold_distances','-dpng')
 
 %% Question 4
-% When the threshold is set to 0.10, there are 5 clusters 
-% rather than four (there is one very small cluster 
-% consisting of 3 points). However, when the threshold 
-% is set to 0.20, there are only 3 clusters since the 2 
-% leftmost clusters are connected. Therefore, out of the
-% given options, the threshold of 0.15 seems best (even 
-% though some values we would consider not belonging 
-% to any of the classes specifically such as the point 
-% around (0.5, 0.45) are attributed to one of the 
-% classes).
+When the threshold is set to 0.10, there are many 
+more than 4 clusters, since all unconnected points are their 
+own cluster. Even disregarding single points as clusters, 
+there is a small cluster of three points in the center.
+However, when the threshold is set to 0.20, there are only 3 
+clusters since the 2 leftmost clusters are connected. Therefore, 
+out of the given options, the threshold of 0.15 seems best. 
+There is a single point in the center which does not belong to 
+any of the four classes, making that its own cluster, meaning even
+this threshold is suboptimal for clustering the data into four 
+clusters exactly. The 'ideal' value for clustering the data into 
+four clusters exactly probably lies in between 0.15 and 0.20, given
+that it exists.
 
 %% NEW question 5
 
