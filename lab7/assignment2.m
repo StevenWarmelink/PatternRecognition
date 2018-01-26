@@ -3,7 +3,7 @@
 clear all;
 %%
 
-data = load('C:\Users\arjun\OneDrive\Documents\PatternRecognition\lab7\cluster_data.mat ');
+data = load('data/cluster_data.mat');
 data = data.cluster_data;
 
 

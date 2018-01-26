@@ -3,7 +3,7 @@ clear all;
 
 %% 
 
-data = load('C:\Users\arjun\OneDrive\Documents\PatternRecognition\lab7\data\provinces');
+data = load('data/provinces');
 data = data.provinces;
 
 %% z-score calculations
